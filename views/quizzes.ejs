@@ -1,23 +1,43 @@
+<title>Lista de Quizzes</title>
 
-<p>Quizzes disponibles</p>
+
+
+<body>
 
 
 <table>
+
     <tr>
-        <th>Preguntas</th>
-        <th>Respuestas</th>
+        <th>Pregunta</th>
+        <th>Respuesta</th>
     </tr>
-        <%for (i=0;i<questions.length;i++){%>
+
+    <% var quizz = (JSON.parse(quizzes)) %>
+    <% console.log(quizz) %>
+    <% console.log(quizz[1].question) %>
+
+    <% for(i = 0;i < quizz.length;i++){ %>
     <tr>
-        <td><%questions[i]%></td>
-        <td><%answers[i]%></td>
+        <td>
+            <%- quizz[i].question %>
+        </td>
+        <td>
+            <%- quizz[i].answer %>
+        </td>
     </tr>
-    <%}%>
+    <% } %>
+
 </table>
 
 
-<script>
-    let a=JSON.parse(<%=questions%>.stringify)
-    console.log(a);
-</script>
+</body>
+
+<footer>
+    <a href="/">Home</a>
+    <a href="credits.ejs">Créditos</a>
+    <a href="quizzes.ejs">Quizzes</a>
+</footer>
+
+
+
 

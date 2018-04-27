@@ -16,16 +16,8 @@ router.get('/credits.ejs', function (req, res, next) {
 router.get('/quizzes.ejs', function (req, res, next) {
     models.quiz.findAll()
         .then(quizzes =>{
-            const questions = [];
-            const answers=[];
-            quizzes.forEach(quiz => {
-                questions.push(quiz.question);
-                answers.push(quiz.answer);
-            });
-            var JsonQuestions=JSON.stringify(questions);
-            var JsonAnswers=JSON.stringify(answers);
-            console.log(JsonAnswers+ ' '+ JsonQuestions);
-            res.render('quizzes',{questions:JsonQuestions, answers:JsonAnswers});
+            var JsonQuizzes=JSON.stringify(quizzes);
+            res.render('quizzes',{quizzes:JsonQuizzes});
             })
         .catch(error =>{
             console.log(error);
