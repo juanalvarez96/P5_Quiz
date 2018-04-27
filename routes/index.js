@@ -18,17 +18,18 @@ router.get('/quizzes.ejs', function (req, res, next) {
         .then(quizzes =>{
             const questions = [];
             const answers=[];
-            quizzes.forEach(quiz =>{
+            quizzes.forEach(quiz => {
                 questions.push(quiz.question);
                 answers.push(quiz.answer);
             });
-            res.render('quizzes',{questions:questions, answers:answers});
-        })
+            var JsonQuestions=JSON.stringify(questions);
+            var JsonAnswers=JSON.stringify(answers);
+            console.log(JsonAnswers+ ' '+ JsonQuestions);
+            res.render('quizzes',{questions:JsonQuestions, answers:JsonAnswers});
+            })
         .catch(error =>{
             console.log(error);
         })
-
-
 
 });
 

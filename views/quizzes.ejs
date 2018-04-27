@@ -1,16 +1,23 @@
-<head>
-    <title>Lista de los quizzes</title>
-</head>
 
-<body>
-<p>
-    Quizzes existentes:
-</p>
-<h1><%=questions%></h1>
-<h2><%=answers%></h2>
+<p>Quizzes disponibles</p>
 
 
-<a href="/">Home</a>
-<a href="credits.ejs">Créditos</a>
-<a href="quizzes.ejs">Quizzes</a>
-</body>
+<table>
+    <tr>
+        <th>Preguntas</th>
+        <th>Respuestas</th>
+    </tr>
+        <%for (i=0;i<questions.length;i++){%>
+    <tr>
+        <td><%questions[i]%></td>
+        <td><%answers[i]%></td>
+    </tr>
+    <%}%>
+</table>
+
+
+<script>
+    let a=JSON.parse(<%=questions%>.stringify)
+    console.log(a);
+</script>
+
