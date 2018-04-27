@@ -1,16 +1,12 @@
 <title>Lista de Quizzes</title>
 
+<h2>Realizado por JUAN ALVAREZ</h2>
 
 
 <body>
 
 
 <table>
-
-    <tr>
-        <th>Pregunta</th>
-        <th>Respuesta</th>
-    </tr>
 
     <% var quizz = (JSON.parse(quizzes)) %>
     <% console.log(quizz) %>
@@ -19,10 +15,10 @@
     <% for(i = 0;i < quizz.length;i++){ %>
     <tr>
         <td>
-            <%- quizz[i].question %>
+            Pregunta número <%- i %> <%- quizz[i].question %>
         </td>
         <td>
-            <%- quizz[i].answer %>
+            Respuesta número <%- i %> <%- quizz[i].answer %>
         </td>
     </tr>
     <% } %>
