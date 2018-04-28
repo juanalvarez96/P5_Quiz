@@ -8,12 +8,12 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET credits page. */
-router.get('/credits.ejs', function (req, res, next) {
+router.get('/credits', function (req, res, next) {
     res.render('credits');
 });
 
 /* GET quizzes page. */
-router.get('/quizzes.ejs', function (req, res, next) {
+router.get('/quizzes', function (req, res, next) {
     models.quiz.findAll()
         .then(quizzes =>{
             var JsonQuizzes=JSON.stringify(quizzes);
